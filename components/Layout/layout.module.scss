@@ -1,0 +1,11 @@
+// .flexContainer {
+//  display: flex;
+//  margin-top: var(--navigation-height);
+//  background-color: green;
+// }
+
+.mainContainer {
+ display: flex;
+ flex-wrap: wrap;
+ margin-top: var(--navigation-height);
+}

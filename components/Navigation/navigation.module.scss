@@ -1,0 +1,11 @@
+.navigation {
+ position: fixed;
+ top: 0;
+ z-index: 2;
+ display: flex;
+ align-items: center;
+ height: var(--navigation-height);
+ width: 100%;
+ background-color: var(--color-primary);
+ color: var(--color-white);
+}

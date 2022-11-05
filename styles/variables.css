@@ -1,0 +1,9 @@
+:root {
+ --color-white: #ffffff;
+ --color-primary: #22252a;
+ --color-secondary: #25b8f9;
+ --color-success: #41c857;
+ --color-error: #ff380a;
+
+ --navigation-height: 80px;
+}
