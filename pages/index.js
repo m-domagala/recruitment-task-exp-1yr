@@ -18,7 +18,7 @@ export default function Homepage({ products }) {
    <Seo title="Homepage" />
    {products.map((product) => {
     return (
-     <Link href={product.id} key={product.name}>
+     <Link href={`products/${product.slug}`} key={product.name}>
       {product.name}
      </Link>
     );
@@ -27,7 +27,7 @@ export default function Homepage({ products }) {
  );
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
  const client = new ApolloClient({
   uri: 'https://reasonapps-gql-api.vercel.app/api/graphql',
   cache: new InMemoryCache(),
@@ -41,6 +41,7 @@ export async function getStaticProps() {
      description
      price
      image
+     slug
     }
    }
   `,
@@ -51,4 +52,4 @@ export async function getStaticProps() {
    products: data.products,
   },
  };
-}
+};
