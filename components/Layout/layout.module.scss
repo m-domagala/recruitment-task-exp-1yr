@@ -1,11 +1,12 @@
-// .flexContainer {
-//  display: flex;
-//  margin-top: var(--navigation-height);
-//  background-color: green;
-// }
-
-.mainContainer {
+.container {
+ min-height: 100vh;
  display: flex;
- flex-wrap: wrap;
- margin-top: var(--navigation-height);
+ flex-direction: column;
+
+ .pageContent {
+  display: flex;
+  flex-grow: 1;
+  margin-top: var(--navigation-height);
+  padding: var(--layout-padding);
+ }
 }

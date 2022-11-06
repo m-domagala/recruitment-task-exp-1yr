@@ -1,0 +1,18 @@
+.navigation {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 2;
+ display: flex;
+ align-items: center;
+ height: var(--navigation-height);
+ padding: 0px var(--layout-padding);
+ background-color: var(--color-primary);
+ color: var(--color-white);
+
+ .logo {
+  font-size: 30px;
+  font-weight: 600;
+ }
+}

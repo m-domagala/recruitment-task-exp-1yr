@@ -1,17 +1,15 @@
-import Navigation from '../Navigation/Navigation';
-// import Sidebar from '../Sidebar/Sidebar';
+import Navigation from './Navigation/Navigation';
+import Footer from './Footer/Footer';
 
 import styles from './layout.module.scss';
 
-function Layout({ children, sidebar = false }) {
+function Layout({ children }) {
  return (
-  <>
+  <div className={styles.container}>
    <Navigation />
-   {/* <div className={styles.flexContainer}> */}
-   {/* {sidebar && <Sidebar />} */}
-   <main className={styles.mainContainer}>{children}</main>
-   {/* </div> */}
-  </>
+   <main className={styles.pageContent}>{children}</main>
+   <Footer />
+  </div>
  );
 }
 

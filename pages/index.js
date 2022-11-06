@@ -1,29 +1,24 @@
 import { useContext } from 'react';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 import { CartContext } from '../context/context';
-
-import Image from 'next/image';
-import Layout from '../components/layout/layout';
 import Seo from '../components/Seo/Seo';
-import styles from '../styles/pages/Home.module.scss';
+import ProductCard from '../components/ProductCard/ProductCard';
 
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import Link from 'next/link';
+import styles from '../styles/pages/Home.module.scss';
 
 export default function Homepage({ products }) {
  const { cartState, setCartState } = useContext(CartContext);
 
  return (
-  <Layout sidebar>
-   <Seo title="Homepage" />
-   {products.map((product) => {
-    return (
-     <Link href={`products/${product.slug}`} key={product.name}>
-      {product.name}
-     </Link>
-    );
-   })}
-  </Layout>
+  <>
+   <Seo title="Products" />
+   <div className={`globalContainer ${styles.container}`}>
+    {products.map((product) => {
+     return <ProductCard key={product.id} data={product} />;
+    })}
+   </div>
+  </>
  );
 }
 

@@ -1,11 +1,7 @@
-.navigation {
- position: fixed;
- top: 0;
- z-index: 2;
+.footer {
  display: flex;
  align-items: center;
- height: var(--navigation-height);
- width: 100%;
+ padding: 20px var(--layout-padding);
  background-color: var(--color-primary);
  color: var(--color-white);
 }

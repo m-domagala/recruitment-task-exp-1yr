@@ -1,4 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import Seo from '../../components/Seo/Seo';
 
 export const getStaticPaths = async () => {
  const client = new ApolloClient({
@@ -31,7 +32,6 @@ export const getStaticProps = async (context) => {
   cache: new InMemoryCache(),
  });
 
- console.log(context.slug);
  const { data } = await client.query({
   query: gql`
    {
@@ -47,7 +47,13 @@ export const getStaticProps = async (context) => {
 };
 
 const Detail = ({ product }) => {
- console.log(product);
- return <p>{product.name}</p>;
+ return (
+  <>
+   <Seo title={product.name} />
+   <div>
+    <p>{product.name}</p>
+   </div>
+  </>
+ );
 };
 export default Detail;
