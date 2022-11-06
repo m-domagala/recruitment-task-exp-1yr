@@ -50,3 +50,20 @@ button:hover {
  width: 100%;
  margin: 0 auto;
 }
+
+.homePageContainer {
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ gap: 32px;
+}
+
+.productPageContainer {
+ justify-content: center;
+}
+
+.notFoundPageContainer {
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+}

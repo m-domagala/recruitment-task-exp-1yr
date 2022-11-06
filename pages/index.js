@@ -5,15 +5,13 @@ import { CartContext } from '../context/context';
 import Seo from '../components/Seo/Seo';
 import ProductCard from '../components/ProductCard/ProductCard';
 
-import styles from '../styles/pages/Home.module.scss';
-
 export default function Homepage({ products }) {
  const { cartState, setCartState } = useContext(CartContext);
 
  return (
   <>
    <Seo title="Products" />
-   <div className={`globalContainer ${styles.container}`}>
+   <div className="globalContainer homePageContainer">
     {products.map((product) => {
      return <ProductCard key={product.id} data={product} />;
     })}
