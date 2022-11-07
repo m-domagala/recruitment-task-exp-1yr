@@ -1,6 +1,9 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Seo from '../../components/Seo/Seo';
+
+import styles from '../../styles/pages.module.scss';
 
 export const getStaticPaths = async () => {
  const client = new ApolloClient({
@@ -56,7 +59,7 @@ const Detail = ({ product }) => {
  return (
   <>
    <Seo title={product.name} />
-   <div className={`globalContainer productPageContainer`}>
+   <div className={`globalContainer ${styles.productPageContainer}`}>
     <ProductCard data={product} modifier="large" />
    </div>
   </>

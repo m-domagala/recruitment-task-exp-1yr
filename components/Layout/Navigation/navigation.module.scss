@@ -11,6 +11,32 @@
  background-color: var(--color-primary);
  color: var(--color-white);
 
+ .linksContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+ }
+
+ .cart {
+  position: relative;
+ }
+
+ .itemsNumber {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  font-weight: 600;
+  font-size: 10px;
+  background-color: var(--color-success);
+  border-radius: 50%;
+ }
+
  .logo {
   font-size: 30px;
   font-weight: 600;

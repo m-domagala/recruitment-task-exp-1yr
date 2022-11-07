@@ -1,0 +1,67 @@
+import { useContext } from 'react';
+
+import { CartContext } from '../context/context';
+
+import Seo from '../components/Seo/Seo';
+import Link from 'next/link';
+
+import styles from '../styles/pages.module.scss';
+import CartItem from '../components/CartItem/CartItem';
+
+const ShoppingCartPage = () => {
+ const { cartState } = useContext(CartContext);
+
+ const pricesArray = cartState.map((object) => {
+  return object.quantity * Number(object.price);
+ });
+
+ const totalCost = pricesArray.reduce((accumulator, value) => {
+  return accumulator + value;
+ }, 0);
+
+ const handlePurchase = () => {
+  const productsData = cartState.map((product) => {
+   return { id: product.id, quantity: product.quantity };
+  });
+  const purchaseData = {
+   cost: totalCost,
+   products: productsData,
+  };
+  console.log(purchaseData);
+ };
+
+ return (
+  <>
+   <Seo title="Shopping cart" />
+   <div className={`globalContainer ${styles.shoppingCartPageContainer}`}>
+    {cartState.length > 0 ? (
+     <div className={styles.inner}>
+      <h3 className={styles.header}>Shopping cart</h3>
+      <div className={styles.productsContainer}>
+       {cartState.map((product) => {
+        return <CartItem key={product.id} data={product} />;
+       })}
+      </div>
+      <div className={styles.summary}>
+       <p className={styles.cost}>
+        Total cost: <span className={styles.price}>${totalCost}</span>
+       </p>
+       <button className={styles.purchaseBtn} onClick={handlePurchase}>
+        console.log()
+       </button>
+      </div>
+     </div>
+    ) : (
+     <div className={styles.emptyCartContainer}>
+      <h2>Your shopping cart is empty</h2>
+      <Link href="/">
+       <h3>Go back to the Homepage</h3>
+      </Link>
+     </div>
+    )}
+   </div>
+  </>
+ );
+};
+
+export default ShoppingCartPage;

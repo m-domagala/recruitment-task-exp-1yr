@@ -7,4 +7,8 @@
 
  --navigation-height: 80px;
  --layout-padding: 32px;
+
+ @media (max-width: 629px) {
+  --layout-padding: 16px;
+ }
 }

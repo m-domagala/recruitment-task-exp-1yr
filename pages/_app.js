@@ -1,19 +1,22 @@
 import { useState } from 'react';
 
-import { CartContext } from '../context/context';
+import { ProductsContext, CartContext } from '../context/context';
 
 import Layout from '../components/layout/layout';
 
 import '../styles/index.scss';
 
 export default function MyApp({ Component, pageProps }) {
- const [cartState, setCartState] = useState(['hello']);
+ const [cartState, setCartState] = useState([]);
+ const [productsState, setProductsState] = useState();
 
  return (
-  <CartContext.Provider value={{ cartState, setCartState }}>
-   <Layout>
-    <Component {...pageProps} />
-   </Layout>
-  </CartContext.Provider>
+  <ProductsContext.Provider value={{ productsState, setProductsState }}>
+   <CartContext.Provider value={{ cartState, setCartState }}>
+    <Layout>
+     <Component {...pageProps} />
+    </Layout>
+   </CartContext.Provider>
+  </ProductsContext.Provider>
  );
 }

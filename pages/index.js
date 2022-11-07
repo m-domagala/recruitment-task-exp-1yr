@@ -1,17 +1,15 @@
-import { useContext } from 'react';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-import { CartContext } from '../context/context';
 import Seo from '../components/Seo/Seo';
 import ProductCard from '../components/ProductCard/ProductCard';
 
-export default function Homepage({ products }) {
- const { cartState, setCartState } = useContext(CartContext);
+import styles from '../styles/pages.module.scss';
 
+export default function Homepage({ products }) {
  return (
   <>
    <Seo title="Products" />
-   <div className="globalContainer homePageContainer">
+   <div className={`globalContainer ${styles.homePageContainer}`}>
     {products.map((product) => {
      return <ProductCard key={product.id} data={product} />;
     })}
