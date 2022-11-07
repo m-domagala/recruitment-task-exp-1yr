@@ -61,7 +61,7 @@ const ProductCard = ({ data, modifier }) => {
       />
      </div>
     ) : (
-     <Link href={`products/${slug}`}>
+     <Link href={`product/${slug}`}>
       <Image src={image} alt="Product icture" width={192} height={144} />
      </Link>
     )}

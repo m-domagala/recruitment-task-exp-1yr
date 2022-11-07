@@ -9,6 +9,7 @@
  --layout-padding: 32px;
 
  @media (max-width: 629px) {
+  --navigation-height: 100px;
   --layout-padding: 16px;
  }
 }

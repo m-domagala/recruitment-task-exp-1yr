@@ -11,15 +11,49 @@
  background-color: var(--color-primary);
  color: var(--color-white);
 
- .linksContainer {
+ .inner {
   display: flex;
-  justify-content: space-between;
+  gap: 32px;
   align-items: center;
   width: 100%;
+  @media (max-width: 629px) {
+   flex-wrap: wrap;
+   gap: 8px 32px;
+  }
+ }
+
+ .inputContainer {
+  position: relative;
+  display: flex;
+  @media (max-width: 629px) {
+   order: 4;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+  }
+ }
+
+ .input {
+  border: none;
+  padding: 0 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  @media (max-width: 629px) {
+   width: 50%;
+  }
+ }
+
+ .submitBtn {
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-secondary);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
  }
 
  .cart {
   position: relative;
+  margin-left: auto;
  }
 
  .itemsNumber {

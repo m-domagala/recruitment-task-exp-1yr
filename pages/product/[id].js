@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-import ProductCard from '../../components/ProductCard/ProductCard';
 import Seo from '../../components/Seo/Seo';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 import styles from '../../styles/pages.module.scss';
 
@@ -55,7 +55,7 @@ export const getStaticProps = async (context) => {
  };
 };
 
-const Detail = ({ product }) => {
+export default function ProductPage({ product }) {
  return (
   <>
    <Seo title={product.name} />
@@ -64,5 +64,4 @@ const Detail = ({ product }) => {
    </div>
   </>
  );
-};
-export default Detail;
+}

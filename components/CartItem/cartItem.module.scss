@@ -45,6 +45,10 @@
   color: var(--color-white);
   background-color: var(--color-secondary);
   padding: 0 15px;
+  &:disabled {
+   pointer-events: none;
+   opacity: 0.3;
+  }
  }
 
  .btnLeft::after,

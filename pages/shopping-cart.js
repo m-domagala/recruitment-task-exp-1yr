@@ -1,14 +1,13 @@
 import { useContext } from 'react';
-
-import { CartContext } from '../context/context';
-
-import Seo from '../components/Seo/Seo';
 import Link from 'next/link';
 
-import styles from '../styles/pages.module.scss';
+import Seo from '../components/Seo/Seo';
 import CartItem from '../components/CartItem/CartItem';
+import { CartContext } from '../context/context';
 
-const ShoppingCartPage = () => {
+import styles from '../styles/pages.module.scss';
+
+export default function ShoppingCartPage() {
  const { cartState } = useContext(CartContext);
 
  const pricesArray = cartState.map((object) => {
@@ -21,13 +20,13 @@ const ShoppingCartPage = () => {
 
  const handlePurchase = () => {
   const productsData = cartState.map((product) => {
-   return { id: product.id, quantity: product.quantity };
+   return { id: product.id, name: product.name, quantity: product.quantity };
   });
   const purchaseData = {
    cost: totalCost,
    products: productsData,
   };
-  console.log(purchaseData);
+  alert(JSON.stringify(purchaseData, null, 2));
  };
 
  return (
@@ -47,21 +46,19 @@ const ShoppingCartPage = () => {
         Total cost: <span className={styles.price}>${totalCost}</span>
        </p>
        <button className={styles.purchaseBtn} onClick={handlePurchase}>
-        console.log()
+        Submit
        </button>
       </div>
      </div>
     ) : (
      <div className={styles.emptyCartContainer}>
       <h2>Your shopping cart is empty</h2>
-      <Link href="/">
-       <h3>Go back to the Homepage</h3>
+      <Link href="/products">
+       <h3 className={styles.link}>See our products</h3>
       </Link>
      </div>
     )}
    </div>
   </>
  );
-};
-
-export default ShoppingCartPage;
+}

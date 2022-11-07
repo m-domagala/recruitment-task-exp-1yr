@@ -1,4 +1,17 @@
+.notFoundPageContainer,
 .homePageContainer {
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+ text-align: center;
+ .link {
+  text-decoration: underline;
+ }
+}
+
+.productsPageContainer,
+.searchPageContainer {
  flex-wrap: wrap;
  justify-content: space-evenly;
  gap: 32px;
@@ -17,6 +30,9 @@
   align-items: center;
   gap: 20px;
   text-align: center;
+ }
+ .link {
+  text-decoration: underline;
  }
  .inner {
   display: flex;
@@ -57,12 +73,4 @@
   padding: 10px 15px;
   border-radius: 5px;
  }
-}
-
-.notFoundPageContainer {
- flex-direction: column;
- align-items: center;
- justify-content: center;
- gap: 20px;
- text-align: center;
 }
