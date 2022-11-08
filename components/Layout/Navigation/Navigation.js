@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useContext, useRef, useState } from 'react';
+import Router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -15,6 +15,8 @@ function Navigation() {
  const { cartState } = useContext(CartContext);
  const router = useRouter();
 
+ const inputRef = useRef();
+
  const quantitiesArray = cartState.map((object) => {
   return object.quantity;
  });
@@ -25,8 +27,19 @@ function Navigation() {
 
  const handleSubmit = (e) => {
   e.preventDefault();
-  router.push(`/search?q=${inputValue}`);
+  inputRef.current.blur();
+  router.push(`/search?q=${inputValue.toLowerCase()}`);
  };
+
+ const changeInputValue = (value) => {
+  if (value.trim().length === 0) {
+   setInputValue('');
+  } else {
+   setInputValue(value);
+  }
+ };
+
+ Router.events.on('routeChangeComplete', () => setInputValue(''));
 
  return (
   <nav className={styles.navigation}>
@@ -36,7 +49,7 @@ function Navigation() {
       <p className={styles.logo}>LOGO</p>
      </Link>
      <form className={styles.inputContainer} onSubmit={(e) => handleSubmit(e)}>
-      <input className={styles.input} type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <input ref={inputRef} className={styles.input} type="text" value={inputValue} onChange={(e) => changeInputValue(e.target.value)} required />
       <button className={styles.submitBtn} type="submit">
        <Image src={arrowIcon} alt="Arrow icon" width={10} height={10} />
       </button>

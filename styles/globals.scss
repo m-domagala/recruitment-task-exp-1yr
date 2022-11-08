@@ -41,9 +41,8 @@ button {
 }
 
 a:focus-visible,
-button:focus-visible,
-input:focus-visible {
- outline: 2px dashed var(--color-secondary);
+button:focus-visible {
+ outline: 2px dashed var(--color-outline);
 }
 
 a:hover,

@@ -34,13 +34,23 @@
  }
 
  .input {
+  width: 160px;
+  height: 30px;
+  padding: 0 8px;
+  letter-spacing: 0.5px;
   border: none;
-  padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   @media (max-width: 629px) {
-   width: 50%;
+   //  width: 50%;
   }
+ }
+
+ .input:focus {
+  outline: none;
+  border: 2px dashed var(--color-secondary);
+  padding: 0 6px;
+  border-right: none;
  }
 
  .submitBtn {

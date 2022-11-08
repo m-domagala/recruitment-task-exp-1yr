@@ -10,11 +10,26 @@
  }
 }
 
-.productsPageContainer,
-.searchPageContainer {
+.productsPageContainer {
  flex-wrap: wrap;
  justify-content: space-evenly;
  gap: 32px;
+}
+
+.searchPageContainer {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ width: 100%;
+ gap: 32px;
+ .header {
+  width: 100%;
+  text-align: center;
+ }
+ .queryText {
+  white-space: nowrap;
+  color: var(--color-secondary);
+ }
 }
 
 .productPageContainer {

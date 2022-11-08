@@ -5,14 +5,20 @@ import ProductCard from '../components/ProductCard/ProductCard';
 
 import styles from '../styles/pages.module.scss';
 
-export default function SearchPage({ products }) {
+export default function SearchPage({ products, query }) {
  return (
   <>
    <Seo title="Search results" />
-   <div className={`globalContainer ${styles.searchPageContainer}`}>
-    {products.map((product) => {
-     return <ProductCard key={product.id} data={product} />;
-    })}
+   <div className="globalContainer">
+    <div className={styles.searchPageContainer}>
+     <h3 className={styles.header}>
+      {products.length === 0 ? "We couldn't find results for " : 'Search results for '}
+      <span className={styles.queryText}>{`"${query}"`}</span>
+     </h3>
+     {products.map((product) => {
+      return <ProductCard key={product.id} data={product} />;
+     })}
+    </div>
    </div>
   </>
  );
@@ -46,7 +52,8 @@ export const getServerSideProps = async (context) => {
 
  return {
   props: {
-   products: filterValue ? filteredData : data.products,
+   products: filterValue ? filteredData || [] : [],
+   query: filterValue ? filterValue : '',
   },
  };
 };
