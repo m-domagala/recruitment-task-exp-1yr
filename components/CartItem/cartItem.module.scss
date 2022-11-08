@@ -23,9 +23,7 @@
  }
 
  .quantityContainer {
-  overflow: hidden;
   display: flex;
-  border-radius: 5px;
  }
 
  .quantity {
@@ -49,6 +47,16 @@
    pointer-events: none;
    opacity: 0.3;
   }
+ }
+
+ .btnLeft {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+ }
+
+ .btnRight {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
  }
 
  .btnLeft::after,
