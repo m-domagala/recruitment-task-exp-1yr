@@ -1,11 +1,13 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
+import { IProductCardObject } from '../types/types';
+
 import Seo from '../components/Seo/Seo';
 import ProductCard from '../components/ProductCard/ProductCard';
 
 import styles from '../styles/pages.module.scss';
 
-export default function ProductsPage({ products }) {
+export default function ProductsPage({ products }: { products: IProductCardObject[] | [] }) {
  return (
   <>
    <Seo title="Products" />

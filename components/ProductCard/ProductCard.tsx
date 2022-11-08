@@ -1,14 +1,19 @@
-import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { CartContext } from '../../context/context';
+import { useCartContext } from '../../context/context';
+import { IProductCardObject } from '../../types/types';
 
 import styles from './productCard.module.scss';
 
-const ProductCard = ({ data, modifier }) => {
+interface IProductCard {
+ data: IProductCardObject;
+ modifier?: string;
+}
+
+const ProductCard = ({ data, modifier }: IProductCard) => {
  const { id, name, description, price, image, slug } = data;
- const { cartState, setCartState } = useContext(CartContext);
+ const { cartState, setCartState } = useCartContext();
 
  const checkIsProductInCart = () => {
   const arrayOfResults = cartState.filter((object) => {

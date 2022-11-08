@@ -1,19 +1,27 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { CartContext } from '../../context/context';
+import { useCartContext } from '../../context/context';
 
 import binIcon from '../../assets/icons/bin.svg';
 
 import styles from './cartItem.module.scss';
 
-const CartItem = ({ data }) => {
+interface IDataObject {
+ id: string;
+ image: string;
+ name: string;
+ price: string;
+ quantity: number;
+ slug: string;
+}
+
+const CartItem = ({ data }: { data: IDataObject }) => {
  const { id, image, name, price, quantity, slug } = data;
- const { cartState, setCartState } = useContext(CartContext);
+ const { cartState, setCartState } = useCartContext();
 
  const handleAdd = () => {
-  const updatedState = cartState.map((object) => {
+  const updatedState = cartState.map((object: IDataObject) => {
    if (object.id === id) {
     return { ...object, quantity: object.quantity + 1 };
    } else {
@@ -24,7 +32,7 @@ const CartItem = ({ data }) => {
  };
 
  const handleDelete = () => {
-  const updatedState = cartState.filter((object) => {
+  const updatedState = cartState.filter((object: IDataObject) => {
    return object.id !== id;
   });
   setCartState(updatedState);
@@ -32,7 +40,7 @@ const CartItem = ({ data }) => {
 
  const handleSubtract = () => {
   if (quantity > 1) {
-   const updatedState = cartState.map((object) => {
+   const updatedState = cartState.map((object: IDataObject) => {
     if (object.id === id) {
      return { ...object, quantity: object.quantity - 1 };
     } else return object;

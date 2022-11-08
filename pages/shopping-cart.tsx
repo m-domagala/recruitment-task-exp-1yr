@@ -1,14 +1,14 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 
 import Seo from '../components/Seo/Seo';
 import CartItem from '../components/CartItem/CartItem';
-import { CartContext } from '../context/context';
+
+import { useCartContext } from '../context/context';
 
 import styles from '../styles/pages.module.scss';
 
 export default function ShoppingCartPage() {
- const { cartState } = useContext(CartContext);
+ const { cartState } = useCartContext();
 
  const pricesArray = cartState.map((object) => {
   return object.quantity * Number(object.price);

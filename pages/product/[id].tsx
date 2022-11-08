@@ -1,7 +1,10 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { GetStaticProps } from 'next';
 
 import Seo from '../../components/Seo/Seo';
 import ProductCard from '../../components/ProductCard/ProductCard';
+
+import { IProductCardObject } from '../../types/types';
 
 import styles from '../../styles/pages.module.scss';
 
@@ -19,7 +22,7 @@ export const getStaticPaths = async () => {
    }
   `,
  });
- const paths = data.products.map((product) => {
+ const paths = data.products.map((product: { slug: string }) => {
   return {
    params: { id: product.slug.toString() },
   };
@@ -30,7 +33,7 @@ export const getStaticPaths = async () => {
  };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
  const client = new ApolloClient({
   uri: 'https://reasonapps-gql-api.vercel.app/api/graphql',
   cache: new InMemoryCache(),
@@ -39,7 +42,7 @@ export const getStaticProps = async (context) => {
  const { data } = await client.query({
   query: gql`
    {
-    products(slug: "${context.params.id}") {
+    products(slug: "${context?.params?.id}") {
      id
      name
      description
@@ -55,7 +58,7 @@ export const getStaticProps = async (context) => {
  };
 };
 
-export default function ProductPage({ product }) {
+export default function ProductPage({ product }: { product: IProductCardObject }) {
  return (
   <>
    <Seo title={product.name} />

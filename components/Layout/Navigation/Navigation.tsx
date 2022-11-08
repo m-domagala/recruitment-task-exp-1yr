@@ -1,9 +1,9 @@
-import { useContext, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import Router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { CartContext } from '../../../context/context';
+import { useCartContext } from '../../../context/context';
 import cartIcon from '../../../assets/icons/cart.svg';
 import arrowIcon from '../../../assets/icons/arrow.svg';
 
@@ -12,10 +12,10 @@ import styles from './navigation.module.scss';
 function Navigation() {
  const [inputValue, setInputValue] = useState('');
 
- const { cartState } = useContext(CartContext);
+ const { cartState } = useCartContext();
  const router = useRouter();
 
- const inputRef = useRef();
+ const inputRef = useRef<HTMLInputElement>(null);
 
  const quantitiesArray = cartState.map((object) => {
   return object.quantity;
@@ -25,13 +25,13 @@ function Navigation() {
   return accumulator + value;
  }, 0);
 
- const handleSubmit = (e) => {
+ const handleSubmit = (e: FormEvent) => {
   e.preventDefault();
-  inputRef.current.blur();
+  inputRef?.current?.blur();
   router.push(`/search?q=${inputValue.toLowerCase()}`);
  };
 
- const changeInputValue = (value) => {
+ const changeInputValue = (value: string) => {
   if (value.trim().length === 0) {
    setInputValue('');
   } else {
