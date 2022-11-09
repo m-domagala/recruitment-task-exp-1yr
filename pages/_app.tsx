@@ -15,13 +15,13 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 export default function MyApp({ Component, pageProps }: AppProps) {
- const [cartState, setCartState] = useState<ICartObject[] | []>([]);
+  const [cartState, setCartState] = useState<ICartObject[] | []>([]);
 
- return (
-  <CartContext.Provider value={{ cartState, setCartState }}>
-   <Layout>
-    <Component {...pageProps} />
-   </Layout>
-  </CartContext.Provider>
- );
+  return (
+    <CartContext.Provider value={{ cartState, setCartState }}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </CartContext.Provider>
+  );
 }

@@ -1,96 +1,96 @@
 .container {
- $spacing: 16px;
+  $spacing: 16px;
 
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- max-height: 450px;
- width: 224px;
- box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
-
- .topContainer {
-  padding: $spacing;
   display: flex;
   flex-direction: column;
-  gap: $spacing;
- }
-
- .name {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
- }
-
- .description {
-  font-size: 14px;
- }
-
- .price {
-  margin-bottom: $spacing;
-  text-align: center;
-  font-weight: 600;
-  color: var(--color-success);
- }
-
- .button {
+  justify-content: space-between;
+  max-height: 450px;
   width: 224px;
-  height: 40px;
-  text-transform: uppercase;
-  color: var(--color-white);
-  background-color: var(--color-secondary);
- }
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+
+  .topContainer {
+    padding: $spacing;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing;
+  }
+
+  .name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .price {
+    margin-bottom: $spacing;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-success);
+  }
+
+  .button {
+    width: 224px;
+    height: 40px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+  }
 }
 
 // Modifiers
 .large {
- $spacing: 24px;
+  $spacing: 24px;
 
- position: relative;
- max-height: none;
- max-width: 688px;
- width: 100%;
- border-radius: 5px;
- .topContainer {
-  padding: $spacing;
-  gap: $spacing;
- }
-
- a {
-  pointer-events: none;
- }
-
- .name {
-  font-size: 24px;
- }
-
- .description {
-  font-size: 18px;
- }
-
- .imgContainer {
   position: relative;
- }
-
- .img {
-  position: relative !important;
- }
-
- .bottomContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 0 24px 24px 24px;
-  align-items: center;
- }
-
- .price {
-  margin-bottom: $spacing;
-  font-size: 20px;
- }
-
- .button {
-  font-weight: 600;
-  border-radius: 5px;
-  max-width: 224px;
+  max-height: none;
+  max-width: 688px;
   width: 100%;
- }
+  border-radius: 5px;
+  .topContainer {
+    padding: $spacing;
+    gap: $spacing;
+  }
+
+  a {
+    pointer-events: none;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .imgContainer {
+    position: relative;
+  }
+
+  .img {
+    position: relative !important;
+  }
+
+  .bottomContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px 24px 24px;
+    align-items: center;
+  }
+
+  .price {
+    margin-bottom: $spacing;
+    font-size: 20px;
+  }
+
+  .button {
+    font-weight: 600;
+    border-radius: 5px;
+    max-width: 224px;
+    width: 100%;
+  }
 }

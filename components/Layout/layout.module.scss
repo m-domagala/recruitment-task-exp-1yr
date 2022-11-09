@@ -1,12 +1,12 @@
 .container {
- min-height: 100vh;
- display: flex;
- flex-direction: column;
-
- .pageContent {
+  min-height: 100vh;
   display: flex;
-  flex-grow: 1;
-  margin-top: var(--navigation-height);
-  padding: 32px var(--layout-padding);
- }
+  flex-direction: column;
+
+  .pageContent {
+    display: flex;
+    flex-grow: 1;
+    margin-top: var(--navigation-height);
+    padding: 32px var(--layout-padding);
+  }
 }
