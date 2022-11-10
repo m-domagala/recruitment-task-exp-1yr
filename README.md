@@ -10,6 +10,7 @@ Goals:
 7. The shopping cart should show a summary of the added products
 8. The app should be prepared with an aesthetic and consistent UI and with the use of RWD. It should also use Static Site Generation and / or Server-side Rendering
 
+
 Install the project:
 
 ```bash
