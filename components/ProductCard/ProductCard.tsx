@@ -56,7 +56,7 @@ const ProductCard = ({ data, modifier }: IProductCard) => {
         {modifier === 'large' ? (
           <div className={styles.imgContainer}>
             <Image
-              src={image}
+              src={`https://${image.slice(10)}`}
               alt="Product picture"
               fill
               className={styles.img}
@@ -67,7 +67,12 @@ const ProductCard = ({ data, modifier }: IProductCard) => {
           </div>
         ) : (
           <Link href={`product/${slug}`}>
-            <Image src={image} alt="Product icture" width={192} height={144} />
+            <Image
+              src={`https://${image.slice(10)}`}
+              alt="Product picture"
+              width={192}
+              height={144}
+            />
           </Link>
         )}
 

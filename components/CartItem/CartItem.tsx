@@ -53,7 +53,12 @@ const CartItem = ({ data }: { data: IDataObject }) => {
     <div className={styles.cartItem}>
       <div className={styles.topContainer}>
         <Link href={`product/${slug}`}>
-          <Image src={image} alt="Product icture" width={64} height={48} />
+          <Image
+            src={`https://${image.slice(10)}`}
+            alt="Product picture"
+            width={64}
+            height={48}
+          />
         </Link>
         <Link href={`product/${slug}`}>
           <h3 className={styles.name}>{name}</h3>
