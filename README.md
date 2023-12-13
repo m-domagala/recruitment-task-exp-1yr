@@ -1,5 +1,7 @@
 ## Recruitment task, which I did with one year of experience as a frontend developer
 
+## Preview: https://recruitment-task-exp-1yr.vercel.app/
+
 ### The task is to prepare a simple React.js application using the Next.js framework, simulating a shopping cart.
 
 Main objectives:
